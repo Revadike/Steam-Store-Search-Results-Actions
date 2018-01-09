@@ -3,7 +3,7 @@
 // @icon         http://store.steampowered.com/favicon.ico
 // @namespace    Royalgamer06
 // @author       Royalgamer06
-// @version      1.0.1
+// @version      1.0.2
 // @description  Add actions to steam store search results.
 // @match        *://store.steampowered.com/search/*
 // @grant        none
@@ -19,7 +19,7 @@ $(document).ready(addButtons);
 function addButtons() {
     const html = `<div class="block">
         <div class="block_header">
-            <div>Results actions</div>
+            <div>Actions for all search results</div>
         </div>
         <div class="block_content block_content_inner">
             <a class="btnv6_blue_hoverfade btn_medium" data-store-tooltip="Add these products to your wishlist." style="width:100%;text-align:center;margin-bottom:3px;" id="btnWishlistResults">
