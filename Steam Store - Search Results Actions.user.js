@@ -8,6 +8,8 @@
 // @match        *://store.steampowered.com/search/*
 // @grant        none
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
+// @updateURL    https://github.com/Royalgamer06/Steam-Store-Search-Results-Actions/raw/master/Steam%20Store%20-%20Search%20Results%20Actions.user.js
+// @downloadURL  https://github.com/Royalgamer06/Steam-Store-Search-Results-Actions/raw/master/Steam%20Store%20-%20Search%20Results%20Actions.user.js
 // ==/UserScript==
 
 // ==Code==
