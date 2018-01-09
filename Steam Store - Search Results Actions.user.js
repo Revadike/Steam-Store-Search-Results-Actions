@@ -40,7 +40,7 @@ function addButtons() {
 }
 
 function wishlistResults() {
-    doAction(this, "/recommended/ignorerecommendation/");
+    doAction(this, "/api/addtowishlist/");
 }
 
 function followResults() {
@@ -48,7 +48,7 @@ function followResults() {
 }
 
 function ignoreResults() {
-    doAction(this, "/api/addtowishlist/");
+    doAction(this, "/recommended/ignorerecommendation/");
 }
 
 function doAction(btn, action) {
