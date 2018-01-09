@@ -3,7 +3,7 @@
 // @icon         http://store.steampowered.com/favicon.ico
 // @namespace    Royalgamer06
 // @author       Royalgamer06
-// @version      1.0.0
+// @version      1.0.1
 // @description  Add actions to steam store search results.
 // @match        *://store.steampowered.com/search/*
 // @grant        none
