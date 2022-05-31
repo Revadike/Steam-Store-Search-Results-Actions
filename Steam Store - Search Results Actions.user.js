@@ -3,7 +3,7 @@
 // @icon         http://store.steampowered.com/favicon.ico
 // @namespace    Royalgamer06
 // @author       Royalgamer06
-// @version      1.0.2
+// @version      1.1.0
 // @description  Add actions to steam store search results.
 // @match        *://store.steampowered.com/search/*
 // @grant        none
@@ -25,6 +25,9 @@ function addButtons() {
             <a class="btnv6_blue_hoverfade btn_medium" data-store-tooltip="Add these products to your wishlist." style="width:100%;text-align:center;margin-bottom:3px;" id="btnWishlistResults">
                 <span>Add to your wishlist</span>
             </a>
+            <a class="btnv6_blue_hoverfade btn_medium" data-store-tooltip="Add these products to cart" style="width:100%;text-align:center;margin-bottom:3px;" id="btnCartResults">
+                <span>Add to cart</span>
+            </a>
             <a class="btnv6_blue_hoverfade btn_medium" data-store-tooltip="Follow these products" style="width:100%;text-align:center;margin-bottom:3px;" id="btnFollowResults">
                 <span>Follow</span>
             </a>
@@ -35,12 +38,17 @@ function addButtons() {
     </div>`;
     $("#additional_search_options").prepend(html);
     $("#btnWishlistResults").click(wishlistResults);
+    $("#btnCartResults").click(cartResults);
     $("#btnFollowResults").click(followResults);
     $("#btnIgnoreResults").click(ignoreResults);
 }
 
 function wishlistResults() {
     doAction(this, "/api/addtowishlist/");
+}
+
+function cartResults() {
+    doAction(this, "/app/{{appid}}/?addtocart=1");
 }
 
 function followResults() {
@@ -56,7 +64,7 @@ function doAction(btn, action) {
     const appids = $(".search_result_row[data-ds-appid]:not(:hidden)").get().map(e => parseInt($(e).data("ds-appid")));
     var ajaxDone = 0;
     appids.forEach(appid => {
-        $.post(action, {
+        $.post(action.replace("{{appid}}", appid), {
             sessionid: g_sessionID,
             appid: appid
         }, function() {
