@@ -3,7 +3,7 @@
 // @icon         http://store.steampowered.com/favicon.ico
 // @namespace    Royalgamer06
 // @author       Royalgamer06
-// @version      1.1.0
+// @version      1.1.1
 // @description  Add actions to steam store search results.
 // @match        *://store.steampowered.com/search/*
 // @grant        none
@@ -61,7 +61,7 @@ function ignoreResults() {
 
 function doAction(btn, action) {
     $(btn).prop("disabled", true).find("span").text("Loading...");
-    const appids = $(".search_result_row[data-ds-appid]:not(:hidden)").get().map(e => parseInt($(e).data("ds-appid")));
+    const appids = $(".search_result_row[data-ds-appid]").get().filter(e => $(e).height() > 0).map(e => parseInt($(e).data("ds-appid")));
     var ajaxDone = 0;
     appids.forEach(appid => {
         $.post(action.replace("{{appid}}", appid), {
